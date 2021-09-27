@@ -1,0 +1,47 @@
+@media rule {
+  
+  h1 {
+    background-color: gainsboro;
+  }
+  
+  .myclassselector {
+    background-color: grey;
+  }
+}
+
+@media print {
+  
+  .screen_only {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-color: grey;
+  }
+  
+  h1 {
+    background-color: green;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 1000px) {
+  body {
+    background-color: gray;
+  }
+}
+
+@media (min-width: 300px) {
+  body {
+    background-color: grey;
+  }
+}
+
+@media (max-width: 1000px) {
+  .title {
+    background-color: white;
+  }
+}
+
+## Bootstrap
