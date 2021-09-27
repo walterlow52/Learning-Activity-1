@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {margin: 20px;}
+}
+h4 {
+  color: white;
+  background-color: darkgreen;
+  text-align: center;
+}
+ul.ace {list-style-type: square;}
+ul li {margin: 10px;}
+.aqua-background {
+  background-color: aqua;
+  text-align: center;
+}
+#heading {
+  color: green;
+  background-color: black;
+  text-align: center;
+}
+.pp {font-family: "Copperplate", fantasy;}
+.p0 {color:white; font-family: "Times New Roman", serif;}
+p.one {color:white; border-style: double; border-color: black;}
+p.double {color:white; border-style: double; border-color: yellow;}
+.p1 {color: aqua; font-family: "Lucida Handwriting", cursive;}
+a {color: crimson;}
+img {border-radius: 10px;} 
+input {
+  padding: 12px 12px;
+  margin: 8px 0;
+}
+</style>
+</head>
+<body>
+</body>
+</html>
