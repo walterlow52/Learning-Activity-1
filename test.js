@@ -32,6 +32,42 @@ if (counter >= 1048576) {
 
   </head>
 <body>
+	  
+const nice = 69;
+const dope = 420;
+var party = 100;
+console.log(party/2);
+let nice_party = nice*party;
+console.log(nice_party)
+
+const square = new Object();
+square.dope = 15;
+square.area = function() {
+	return this.dope*this.dope;
+}
+console.log(square.area());
+
+let a = 20;
+let b = "20";
+if (a == b) {
+	console.log("You've reached your limit")
+} else {
+	console.log("Continue") }
+console.log(a)
+console.log(b)
+
+var oof = ["potato", "call of duty", 22, true, function() {
+	console.log("We are testing an array now")
+}
+	   ];
+console.log(arr[0]);
+console.log(arr[1]);
+console.log(arr[2]);
+console.log(arr[3]);
+for (let i = 0; i < arr.length; i++) {
+	console.log(arr[i]);
+}
+
 	<h3 style = "background-color: blue;" onmouseover="hackerman()"> JS Test: Type your username and password! </h3>
         <input type = "text" onkeypress= "hackerman()"> 
 	<button onclick= "hackerman()"> Login </button>
