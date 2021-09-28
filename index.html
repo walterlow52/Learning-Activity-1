@@ -18,13 +18,13 @@
 }
 )
 
-let counter = 0
+let counter = 1
 function inc() {
 	counter = counter * 2;
 	document.queryselector("#double").innerHTML = `Product: ${counter}`;
 	
 if (counter >= 1048576) {
-	counter = 0
+	counter = 1
 	document.queryselector("#double").innerHTML = "That's enough. You probably don't know how much times you clicked that button."
 }
 }
