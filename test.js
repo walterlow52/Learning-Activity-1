@@ -1,6 +1,17 @@
 <!DOCTYPE html>
   <html>
   <head>
+	<meta charset = "UTF-8">
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+		document.querySelector('#form').onsubmit = function() {
+		alert(document.querySelector("#message").value); }
+		document.querySelector("abutton").onclick = function() {
+		let message = document.querySelector("#message").value
+		alert(`${message} smileyface` )
+		}
+	})
+</script>
   <script>
      alert('HELLO USER! YOUR COMPUTER IS BEING HACKED! PLEASE HIT THE BLUE BUTTON TO CLEAN YOUR PC.')
   </script>
@@ -30,8 +41,37 @@ if (counter >= 1048576) {
 }
 }
 
-  </head>
+<script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+
+            document.querySelector('#red').onclick = function() {
+                document.querySelector('#style_me').style.color = 'red';
+            }
+
+            document.querySelector('#white').onclick = function() {
+                 document.querySelector('#style_me').style.color = 'white';
+            }
+
+            document.querySelector('#blue').onclick = function() {
+                document.querySelector('#style_me').style.color = 'blue';
+            }
+
+            document.querySelector('#left').onclick = function() {
+                document.querySelector('#style_me').style.cssFloat = 'left';
+            }
+
+            document.querySelector('#right').onclick = function() => {
+                 document.querySelector('#style_me').style.cssFloat = 'right';
+            }
+        })
+      </script>
 <body>
+<form id = "form">
+	<input id = "message" type = "text"/>
+	<button id = "abutton"> </button>
+        <input type = "submit">
+</form>
 	  
 const nice = 69;
 const dope = 420;
@@ -79,6 +119,19 @@ for (let i = 0; i < arr.length; i++) {
 
 <h1 id = "double"> Product: 1 </h1> 
 <button> Click to double </button>
+
+<h1 id="style_me"> Color me</h1>
+    <div>
+      <div>
+        <button id='red'> Red</button>
+        <button id='white'> Green </button>
+        <button id='blue'> Blue </button>
+      </div>
+      <div>
+        <button id='left'> Left Align </button>
+        <button id='right'> Right Align </button>
+      </div>
+  </div>
 	
   </body>
 </html>
