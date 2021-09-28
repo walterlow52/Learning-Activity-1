@@ -23,6 +23,7 @@
 	document.queryselector(".headingIII").innerHTML = "I repeat, this is a test";
 	document.queryselector("#headingIIII").innerHTML = "<span style ='color:red'> Test test one two check check </span>"
 }
+</script>
 
 <script type = "text/javascript">
 	document.addEventListener('DOMContentLoaded', function() {
@@ -40,7 +41,7 @@ if (counter >= 1048576) {
 	document.queryselector("#double").innerHTML = "That's enough. You probably don't know how much times you clicked that button."
 }
 }
-
+</script>
 <script>
 
         document.addEventListener('DOMContentLoaded', function(){
