@@ -2,7 +2,7 @@
   <html>
   <head>
 	<meta charset = "UTF-8">
-		<script>
+		/*<script>
 		document.addEventListener('DOMContentLoaded', function() {
 		document.querySelector('#form').onsubmit = function() {
 		alert(document.querySelector("#message").value); }
@@ -11,12 +11,12 @@
 		alert(`${message} smileyface` )
 		}
 	})
-</script>
+</script>*/
   <script>
      alert('HELLO USER! YOUR COMPUTER IS BEING HACKED! PLEASE HIT THE BLUE BUTTON TO CLEAN YOUR PC.')
   </script>
 
-<script type = "text/javascript"> 
+/*<script type = "text/javascript"> 
 	function testing_statement() {
 	document.queryselector("h1").innerHTML = "TEST";
 	document.queryselector("#headingII").innerHTML = "This is a test";
@@ -30,7 +30,7 @@
 	document.queryselector("button").onclick = inc;
 }
 )
-
+*/
 let counter = 0
 function inc() {
 	counter = counter * 2;
@@ -43,7 +43,7 @@ if (counter >= 1048576) {
 }
 </script>
 <script>
-
+/*
         document.addEventListener('DOMContentLoaded', function(){
 
             document.querySelector('#red').onclick = function() {
@@ -66,14 +66,15 @@ if (counter >= 1048576) {
                  document.querySelector('#style_me').style.cssFloat = 'right';
             }
         })
-      </script>
+      </script>*/
 <body>
+
 <form id = "form">
 	<input id = "message" type = "text"/>
 	<button id = "abutton"> </button>
         <input type = "submit">
 </form>
-	  
+/*	  
 const nice = 69;
 const dope = 420;
 var party = 100;
@@ -133,6 +134,6 @@ for (let i = 0; i < arr.length; i++) {
         <button id='right'> Right Align </button>
       </div>
   </div>
-	
+	*/
   </body>
 </html>
