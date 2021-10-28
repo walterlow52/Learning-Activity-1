@@ -1,139 +1,167 @@
-<!DOCTYPE html>
-  <html>
-  <head>
-	<meta charset = "UTF-8">
-		/*<script>
-		document.addEventListener('DOMContentLoaded', function() {
-		document.querySelector('#form').onsubmit = function() {
-		alert(document.querySelector("#message").value); }
-		document.querySelector("abutton").onclick = function() {
-		let message = document.querySelector("#message").value
-		alert(`${message} smileyface` )
-		}
-	})
-</script>*/
-  <script>
-     alert('HELLO USER! YOUR COMPUTER IS BEING HACKED! PLEASE HIT THE BLUE BUTTON TO CLEAN YOUR PC.')
-  </script>
+// File : 02_app_demo.js
+//
+//
 
-/*<script type = "text/javascript"> 
-	function testing_statement() {
-	document.queryselector("h1").innerHTML = "TEST";
-	document.queryselector("#headingII").innerHTML = "This is a test";
-	document.queryselector(".headingIII").innerHTML = "I repeat, this is a test";
-	document.queryselector("#headingIIII").innerHTML = "<span style ='color:red'> Test test one two check check </span>"
-}
-</script>
 
-<script type = "text/javascript">
-	document.addEventListener('DOMContentLoaded', function() {
-	document.queryselector("button").onclick = inc;
-}
-)
-*/
-let counter = 0
-function inc() {
-	counter = counter * 2;
-	document.queryselector("#double").innerHTML = `Product: ${counter}`;
-	
-if (counter >= 1048576) {
-	counter = 0
-	document.queryselector("#double").innerHTML = "That's enough. You probably don't know how much times you clicked that button."
-}
-}
-</script>
-<script>
-/*
-        document.addEventListener('DOMContentLoaded', function(){
+// The questions array represents the model of the applications. 
+// In the demo code the model is hard-coded; However, in 
+// a real application the model will be loaded from a RESTFUL API.
 
-            document.querySelector('#red').onclick = function() {
-                document.querySelector('#style_me').style.color = 'red';
-            }
+const questions = [
+  {
+    questionType : "true_false",
+    questionText : "The earth is round",
+    correctAnswer : "true",
+    options : ["true", "false"],
+  },
+  {
+    questionType : "text_input",
+    questionText : "What is the value of the expression 1+1",
+    correctAnswer : "2",
+    answerFieldId : "answer_to_question"
+  }
+]
 
-            document.querySelector('#white').onclick = function() {
-                 document.querySelector('#style_me').style.color = 'white';
-            }
-
-            document.querySelector('#blue').onclick = function() {
-                document.querySelector('#style_me').style.color = 'blue';
-            }
-
-            document.querySelector('#left').onclick = function() {
-                document.querySelector('#style_me').style.cssFloat = 'left';
-            }
-
-            document.querySelector('#right').onclick = function() => {
-                 document.querySelector('#style_me').style.cssFloat = 'right';
-            }
-        })
-      </script>*/
-<body>
-
-<form id = "form">
-	<input id = "message" type = "text"/>
-	<button id = "abutton"> </button>
-        <input type = "submit">
-</form>
-/*	  
-const nice = 69;
-const dope = 420;
-var party = 100;
-console.log(party/2);
-let nice_party = nice*party;
-console.log(nice_party)
-
-const square = new Object();
-square.dope = 15;
-square.area = function() {
-	return this.dope*this.dope;
-}
-console.log(square.area());
-
-let a = 20;
-let b = "20";
-if (a == b) {
-	console.log("You've reached your limit")
-} else {
-	console.log("Continue") }
-console.log(a)
-console.log(b)
-
-var oof = ["potato", "call of duty", 22, true, function() {
-	console.log("We are testing an array now")
-}
-	   ];
-console.log(arr[0]);
-console.log(arr[1]);
-console.log(arr[2]);
-console.log(arr[3]);
-for (let i = 0; i < arr.length; i++) {
-	console.log(arr[i]);
+// appState, keep information about the State of the application.
+const appState = {
+    current_view : "#intro_view",
+    current_question : -1,
+    current_model : {}
 }
 
-	<h3 style = "background-color: blue;" onmouseover="hackerman()"> JS Test: Type your username and password! </h3>
-        <input type = "text" onkeypress= "hackerman()"> 
-	<button onclick= "hackerman()"> Login </button>
-	
-	<h1 id = "headingII"> Java SQL </h1>
-	<h1 class = "headingIII"> Python </h1>
-	<h1 id = "headingIIII"> HTML Javascript CSS </h1>
-	<button onclick = "testing_statement()"> In Progress: C++ Linux C# </button>
+//
+// start_app: begin the applications.
+//
 
-<h1 id = "double"> Product: 1 </h1> 
-<button> Click to double </button>
+document.addEventListener('DOMContentLoaded', () => {
+  // Set the state
+  appState.current_view =  "#intro_view";
+  appState.current_model = {
+    action : "start_app"
+  }
+  update_view(appState);
 
-<h1 id="style_me"> Color me</h1>
-    <div>
-      <div>
-        <button id='red'> Red</button>
-        <button id='white'> Green </button>
-        <button id='blue'> Blue </button>
-      </div>
-      <div>
-        <button id='left'> Left Align </button>
-        <button id='right'> Right Align </button>
-      </div>
-  </div>
-	*/
-  </body>
-</html>
+  //
+  // EventDelegation - handle all events of the widget
+  //
+
+  document.querySelector("#widget_view").onclick = (e) => {
+      handle_widget_event(e)
+  }
+});
+
+
+
+function handle_widget_event(e) {
+
+  if (appState.current_view == "#intro_view"){
+    if (e.target.dataset.action == "start_app") {
+
+        // Update State (current model + state variables)
+        appState.current_question = 0
+        appState.current_model = questions[appState.current_question];
+        // process the appState, based on question type update appState.current_view
+        setQuestionView(appState);
+       
+        // Now that the state is updated, update the view.
+
+        update_view(appState);
+    }
+  }
+
+  // Handle the answer event.
+  if (appState.current_view == "#question_view_true_false") {
+
+    if (e.target.dataset.action == "answer") {
+       // Controller - implement logic.
+       isCorrect = check_user_response(e.target.dataset.answer, appState.current_model);
+     
+       // Update the state.
+       appState.current_question =   appState.current_question + 1;
+       appState.current_model = questions[appState.current_question];
+       setQuestionView(appState);
+     
+       // Update the view.  
+       update_view(appState);
+
+     }
+   }
+
+   // Handle answer event for  text questions.
+   if (appState.current_view == "#question_view_text_input") {
+       if (e.target.dataset.action == "submit") {
+     
+           user_response = document.querySelector(`#${appState.current_model.answerFieldId}`).value;
+           isCorrect = check_user_response(e.target.dataset.answer, appState.current_model);
+           updateQuestion(appState)
+           //appState.current_question =   appState.current_question + 1;
+           //appState.current_model = questions[appState.current_question];
+           setQuestionView(appState);
+           update_view(appState);
+       }
+    }
+
+    // Handle answer event for  text questions.
+    if (appState.current_view == "#end_view") {
+        if (e.target.dataset.action == "start_again") {
+          appState.current_view =  "#intro_view";
+          appState.current_model = {
+            action : "start_app"
+          }
+          update_view(appState);
+
+        }
+      }
+
+ } // end of hadnle_widget_event
+
+
+function check_user_response(user_answer, model) {
+  if (user_answer == model.correctAnswer) {
+    return true;
+  }
+  return false;
+}
+
+function updateQuestion(appState) {
+    if (appState.current_question < questions.length-1) {
+      appState.current_question =   appState.current_question + 1;
+      appState.current_model = questions[appState.current_question];
+    }
+    else {
+      appState.current_question = -2;
+      appState.current_model = {};
+    }
+}
+
+function setQuestionView(appState) {
+  if (appState.current_question == -2) {
+    appState.current_view  = "#end_view";
+    return
+  }
+
+  if (appState.current_model.questionType == "true_false")
+    appState.current_view = "#question_view_true_false";
+  else if (appState.current_model.questionType == "text_input") {
+    appState.current_view = "#question_view_text_input";
+  }
+}
+
+function update_view(appState) {
+
+  const html_element = render_widget(appState.current_model, appState.current_view)
+  document.querySelector("#widget_view").innerHTML = html_element;
+}
+//
+
+const render_widget = (model,view) => {
+  // Get the template HTML
+  template_source = document.querySelector(view).innerHTML
+  // Handlebars compiles the above source into a template
+  var template = Handlebars.compile(template_source);
+
+  // apply the model to the template.
+  var html_widget_element = template({...model,...appState})
+
+  return html_widget_element
+}
