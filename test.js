@@ -7,12 +7,20 @@
 // In the demo code the model is hard-coded; However, in 
 // a real application the model will be loaded from a RESTFUL API.
 
-const fetch_data = async () => {
-  const data = await fetch("https://my-json-server.typicode.com/walterlow52/CUS-1172-Project-3/db")
-  const module = await data.json()
-  const html_element = template_view(module, '#view_intro')
-  document.querySelector("#fetchData").innerHTML = html_element;
+const questions = [
+  {
+    questionType : "true_false",
+    questionText : "The earth is round",
+    correctAnswer : "true",
+    options : ["true", "false"],
+  },
+  {
+    questionType : "text_input",
+    questionText : "What is the value of the expression 1+1",
+    correctAnswer : "2",
+    answerFieldId : "answer_to_question"
   }
+]
 
 // appState, keep information about the State of the application.
 const appState = {
@@ -51,7 +59,7 @@ function handle_widget_event(e) {
 
         // Update State (current model + state variables)
         appState.current_question = 0
-        appState.current_model = fetch_data(questions[appState.current_question]).question;
+        appState.current_model = questions[appState.current_question];
         // process the appState, based on question type update appState.current_view
         setQuestionView(appState);
        
@@ -70,7 +78,7 @@ function handle_widget_event(e) {
      
        // Update the state.
        appState.current_question =   appState.current_question + 1;
-       appState.current_model = fetch_data(questions[appState.current_question]).question;
+       appState.current_model = questions[appState.current_question];
        setQuestionView(appState);
      
        // Update the view.  
@@ -118,7 +126,7 @@ function check_user_response(user_answer, model) {
 function updateQuestion(appState) {
     if (appState.current_question < questions.length-1) {
       appState.current_question =   appState.current_question + 1;
-      appState.current_model = fetch_data(questions[appState.current_question]).question;
+      appState.current_model = questions[appState.current_question];
     }
     else {
       appState.current_question = -2;
