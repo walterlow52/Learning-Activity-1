@@ -7,20 +7,13 @@
 // In the demo code the model is hard-coded; However, in 
 // a real application the model will be loaded from a RESTFUL API.
 
-const questions = [
-  {
-    questionType : "true_false",
-    questionText : "The earth is round",
-    correctAnswer : "true",
-    options : ["true", "false"],
-  },
-  {
-    questionType : "text_input",
-    questionText : "What is the value of the expression 1+1",
-    correctAnswer : "2",
-    answerFieldId : "answer_to_question"
+const fetch_data = async () => {
+  const data = await fetch("https://my-json-server.typicode.com/walterlow52/CUS-1172-Project-3/db")
+  const module = await data.json()
+  const html_element = template_view(module, '#view_intro')
+  document.querySelector("#fetchData").innerHTML = html_element;
+   display(module);
   }
-]
 
 // appState, keep information about the State of the application.
 const appState = {
