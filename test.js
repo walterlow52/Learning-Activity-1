@@ -12,7 +12,6 @@ const fetch_data = async () => {
   const module = await data.json()
   const html_element = template_view(module, '#view_intro')
   document.querySelector("#fetchData").innerHTML = html_element;
-   display(module);
   }
 
 // appState, keep information about the State of the application.
