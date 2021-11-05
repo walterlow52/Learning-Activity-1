@@ -145,9 +145,9 @@ function setQuestionView(appState) {
     return
   }
 
-  if (appState.current_model.questionType == "true_false")
+  if (appState.current_model.type == "true_false")
     appState.current_view = "#question_view_true_false";
-  else if (appState.current_model.questionType == "text_input") {
+  else if (appState.current_model.type == "text") {
     appState.current_view = "#question_view_text_input";
   }
 }
