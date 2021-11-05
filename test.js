@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function handle_widget_event(e, module) {
 
   if (appState.current_view == "#intro_view"){
-    if (e.action == "start_app") {
+    if (e.target.action == "start_app") {
 
         // Update State (current model + state variables)
         appState.current_question = 0
