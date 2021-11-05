@@ -147,7 +147,7 @@ function setQuestionView(appState) {
 
   if (fetch_data() == "true_false")
     appState.current_view = "#question_view_true_false";
-  else if (appState.current_model.type == "text") {
+  else if (fetch_data() == "text") {
     appState.current_view = "#question_view_text_input";
   }
 }
