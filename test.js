@@ -6,6 +6,21 @@
 // The questions array represents the model of the applications. 
 // In the demo code the model is hard-coded; However, in 
 // a real application the model will be loaded from a RESTFUL API.
+ const fetch_data = async () => {
+  const data = await fetch("https://my-json-server.typicode.com/walterlow52/CUS-1172-Project-3/db")
+  const module = await data.json()
+  //const html_element = template_view(module, '#view_intro')
+   display(module);
+  }
+  
+  function display(module) {
+    let quiz_text = module.questions[6].question;
+    let quiz_type = module.questions[6].type;
+    let quiz_answer = module.questions[6].answer;
+    let quiz_options = module.questions[6].choices;
+    let HTMLstring = `<h3> ${quiz_text} <br> </h3> <h4> Type: ${quiz_type} <br> answer: ${quiz_answer} <br> ${quiz_options} </h4>`;
+    document.querySelector("#showdata").innerHTML = HTMLstring;
+  }
 
 const questions = [
   {
