@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const module = await data.json()
   //const html_element = template_view(module, '#view_intro')
    display(module);
+   handle_widget_event(module);
   }
   
   function display(module) {
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-function handle_widget_event(e) {
+function handle_widget_event(e, module) {
 
   if (appState.current_view == "#intro_view"){
     if (e.target.dataset.action == "start_app") {
