@@ -6,6 +6,11 @@
 // The questions array represents the model of the applications. 
 // In the demo code the model is hard-coded; However, in 
 // a real application the model will be loaded from a RESTFUL API.
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch_data(1);
+});
+
  const fetch_data = async () => {
   const data = await fetch("https://my-json-server.typicode.com/walterlow52/CUS-1172-Project-3/db")
   const module = await data.json()
