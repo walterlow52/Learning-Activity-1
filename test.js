@@ -64,7 +64,7 @@ function handle_widget_event(e) {
 
         // Update State (current model + state variables)
         appState.current_question = 0
-        appState.current_model = quiz_text;
+        appState.current_model = fetch_data[appState.current_question];
         // process the appState, based on question type update appState.current_view
         setQuestionView(appState);
        
