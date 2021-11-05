@@ -79,7 +79,7 @@ function handle_widget_event(e) {
 
         // Update State (current model + state variables)
         appState.current_question = 0
-        appState.current_model = questions[appState.current_question];
+        appState.current_model = module.questions[appState.current_question].question;
         // process the appState, based on question type update appState.current_view
         setQuestionView(appState);
        
