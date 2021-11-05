@@ -27,21 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector("#showdata").innerHTML = HTMLstring;
   }
 
-const questions = [
-  {
-    questionType : "true_false",
-    questionText : "The earth is round",
-    correctAnswer : "true",
-    options : ["true", "false"],
-  },
-  {
-    questionType : "text_input",
-    questionText : "What is the value of the expression 1+1",
-    correctAnswer : "2",
-    answerFieldId : "answer_to_question"
-  }
-]
-
 // appState, keep information about the State of the application.
 const appState = {
     current_view : "#intro_view",
