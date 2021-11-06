@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
    display(module);
   }
   
+ const quiz_questions = fetch_data.module;
+ 
   function display(module) {
     let quiz_num = module.questions[6].id;
     let quiz_text = module.questions[6].question;
