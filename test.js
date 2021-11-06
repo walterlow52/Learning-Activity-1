@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function display(module) {
+    let quiz_num = module.questions[6].id;
     let quiz_text = module.questions[6].question;
     let quiz_type = module.questions[6].type;
     let quiz_answer = module.questions[6].answer;
@@ -63,7 +64,7 @@ function handle_widget_event(e) {
     if (e.target.dataset.action == "start_app") {
 
         // Update State (current model + state variables)
-        appState.current_question = 1
+        appState.current_question = fetch_data.questions[appState.current_question].id;
         appState.current_model = fetch_data.questions[appState.current_question].question;
         // process the appState, based on question type update appState.current_view
         setQuestionView(appState);
