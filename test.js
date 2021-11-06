@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
  const fetch_data = async () => {
+   try {
   const data = await fetch("https://my-json-server.typicode.com/walterlow52/CUS-1172-Project-3/db")
   const module = await data.json()
+  }
   //const html_element = template_view(module, '#view_intro')
    display(module);
   }
