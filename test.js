@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //const html_element = template_view(module, '#view_intro')
   }
   
- const quiz_questions = fetch_data.module;
+ const quiz_questions = fetch_data.module.questions;
  
   function display(module) {
     let quiz_num = module.questions[6].id;
