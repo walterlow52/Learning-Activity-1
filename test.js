@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function handle_widget_event(e, module) {
 
   if (appState.current_view == "#intro_view"){
-    if (e.target.dataset.action == "start_app") {
+    if (e.action == "start_app") {
 
         // Update State (current model + state variables)
         appState.current_question = 0
@@ -85,7 +85,7 @@ function handle_widget_event(e, module) {
      
        // Update the state.
        appState.current_question =   appState.current_question + 1;
-       appState.current_model = fetch_data.questions[appState.current_question].question;
+       appState.current_model = fetch_data()//.questions[appState.current_question].question;
        setQuestionView(appState);
      
        // Update the view.  
