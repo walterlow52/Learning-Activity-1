@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   //const html_element = template_view(module, '#view_intro')
   }
-  
- const quiz_questions = fetch_data.module.questions;
  
   function display(module) {
     let quiz_num = module.questions[6].id;
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // appState, keep information about the State of the application.
 const appState = {
     current_view : "#intro_view",
-    current_question : 1,
+    current_question : -1,
     current_model : {}
 }
 
@@ -71,7 +69,7 @@ function handle_widget_event(e) {
 
         // Update State (current model + state variables)
         appState.current_question === 0;
-        appState.current_model = quiz_questions[appState.current_question].question;
+        appState.current_model = fetch_data.questions[appState.current_question].question;
         // process the appState, based on question type update appState.current_view
         setQuestionView(appState);
        
