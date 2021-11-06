@@ -60,9 +60,9 @@
       <div class="row">
           <div class="col">
             <div>
-              <span style="text-align:center"> {{this.questionText}}</span>
-              <button class="btn btn-primary pull-left" data-action="answer" data-answer="{{this.options.[0]}}">{{this.options.[0]}}</button>
-              <button class="btn btn-danger float-right" data-action="answer" data-answer="{{this.options.[1]}}">{{this.options.[1]}}</button>
+              <span style="text-align:center"> {{fetch_data.questions[appState.current_question].question}}</span>
+              <button class="btn btn-primary pull-left" data-action="answer" data-answer="{{this.choices.[0]}}">{{this.choices.[0]}}</button>
+              <button class="btn btn-danger float-right" data-action="answer" data-answer="{{this.choices.[1]}}">{{this.choices.[1]}}</button>
             </div>
           </div>
         </div>
