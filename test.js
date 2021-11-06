@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // appState, keep information about the State of the application.
 const appState = {
     current_view : "#intro_view",
-    current_question : 0,
+    current_question : -1,
     current_model : {}
 }
 
@@ -64,8 +64,8 @@ function handle_widget_event(e) {
     if (e.target.dataset.action == "start_app") {
 
         // Update State (current model + state variables)
-        appState.current_question = fetch_data.questions[appState.current_question].id;
-        appState.current_model = fetch_data.questions[appState.current_question].question;
+        appState.current_question = 0
+        appState.current_model = fetch_data.module.questions[appState.current_question].question;
         // process the appState, based on question type update appState.current_view
         setQuestionView(appState);
        
