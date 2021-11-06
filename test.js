@@ -84,7 +84,7 @@ function handle_widget_event(e) {
      
        // Update the state.
        appState.current_question =   appState.current_question + 1;
-       appState.current_model = fetch_data()//.questions[appState.current_question].question;
+       appState.current_model = fetch_data().questions[appState.current_question].question;
        setQuestionView(appState);
      
        // Update the view.  
