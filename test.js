@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const module = await data.json()
   //const html_element = template_view(module, '#view_intro')
    display(module);
-   handle_widget_event(e, module);
+   handle_widget_event(module);
   }
   
   function display(module) {
