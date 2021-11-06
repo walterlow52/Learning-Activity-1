@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // appState, keep information about the State of the application.
 const appState = {
-    current_view : "#intro_view",
+    current_view : `<h3> ${quiz_text} <br> </h3> <h4> Type: ${quiz_type} <br> answer: ${quiz_answer} <br> ${quiz_options} </h4>`,
     current_question : -1,
     current_model : {}
 }
